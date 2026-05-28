@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poke Arena SPA</title>
+    <meta
+      name="description"
+      content="Aplicacion web tipo juego de Pokemon con PokeAPI, batalla y coleccion local."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Bungee", "sans-serif"],
+              body: ["Nunito", "sans-serif"],
+            },
+            animation: {
+              floaty: "floaty 4s ease-in-out infinite",
+              pulseSoft: "pulseSoft 1.5s ease-in-out infinite",
+            },
+            keyframes: {
+              floaty: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-8px)" },
+              },
+              pulseSoft: {
+                "0%, 100%": { opacity: "0.5" },
+                "50%": { opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="h-full bg-slate-100 font-body text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+    <div id="app" class="min-h-full"></div>
+    <script type="module" src="./app/main.js"></script>
+  </body>
+</html>

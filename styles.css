@@ -1,0 +1,156 @@
+:root {
+  --bg-accent-1: #f97316;
+  --bg-accent-2: #06b6d4;
+  --bg-accent-3: #22c55e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--bg-accent-1) 15%, transparent), transparent 35%),
+    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--bg-accent-2) 20%, transparent), transparent 30%),
+    radial-gradient(circle at 50% 95%, color-mix(in srgb, var(--bg-accent-3) 15%, transparent), transparent 40%);
+  background-attachment: fixed;
+}
+
+.dark body {
+  --bg-accent-1: #ea580c;
+  --bg-accent-2: #0891b2;
+  --bg-accent-3: #16a34a;
+}
+
+.glass {
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, white 78%, transparent);
+}
+
+.dark .glass {
+  background: color-mix(in srgb, #020617 72%, transparent);
+}
+
+.poke-card {
+  transform-style: preserve-3d;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.poke-card:hover {
+  transform: translateY(-6px) rotateX(3deg);
+  box-shadow: 0 20px 40px -18px rgb(15 23 42 / 0.45);
+}
+
+.fade-in {
+  animation: fadeIn 320ms ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgb(203 213 225 / 0.7);
+}
+
+.dark .skeleton {
+  background: rgb(51 65 85 / 0.75);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.45),
+    transparent
+  );
+  animation: shimmer 1.2s infinite;
+}
+
+.dark .skeleton::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(148 163 184 / 0.22),
+    transparent
+  );
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.health-bar {
+  transition: width 250ms ease;
+}
+
+.capsule-btn {
+  transition: transform 180ms ease;
+}
+
+.capsule-btn:active {
+  transform: scale(0.96);
+}
+
+.battle-card {
+  position: relative;
+}
+
+.battle-card.hit {
+  animation: battleShake 320ms ease;
+}
+
+.battle-card.hit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  background: radial-gradient(circle at center, rgb(248 113 113 / 0.45), transparent 65%);
+  animation: impactFlash 320ms ease;
+  pointer-events: none;
+}
+
+@keyframes battleShake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes impactFlash {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
