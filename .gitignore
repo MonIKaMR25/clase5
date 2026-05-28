@@ -1,0 +1,3 @@
+# Keep folder structure but ignore future contents in jpokemon
+jpokemon/*
+!jpokemon/.gitkeep
